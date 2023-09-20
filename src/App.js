@@ -10,8 +10,8 @@ import { useStateContext } from "./contexts/ContextProvider";
 import './App.css';
 
 function App() {
-  // const {activeMenu} = useStateContext();
-  const activeMenu = true;
+  //const {activeMenu} = useStateContext();
+  const activeMenu = false;
   return (
     <div>
       <BrowserRouter>
@@ -37,7 +37,7 @@ function App() {
             `dark:bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72':'flex-2'}`
           }>
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-              Navbar
+              <Navbar/>
             </div>
           </div> 
           <div>
