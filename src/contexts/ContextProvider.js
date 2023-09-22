@@ -1,4 +1,4 @@
-import React,{createContext, useContext, useState} from 'react';
+import {createContext, useContext, useState} from 'react';
 
 const  StateContext = createContext();
 
@@ -6,15 +6,18 @@ const initialState = {
     chat: false,
     chart: false,
     userProfile: false,
-    notification: false,
-}
-export const ContextProvider = ({childern})=>{
+    notification: false
+};
+
+// i used another name instead of children
+export const ContextProvider = ({children})=>{
     const [activeMenu, setActiveMenu] = useState(true);
     return (
         <StateContext.Provider value={{activeMenu,setActiveMenu}}
         >
-            {childern}
+            {children}
         </StateContext.Provider>
-    )
-}
+    );
+};
 export const useStateContext = () => useContext(StateContext);
+
