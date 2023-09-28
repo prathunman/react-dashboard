@@ -14,8 +14,8 @@ function ThemeSettings() {
         <div className='float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400'>
             <div className='flex justify-between items-center p-4 ml-4'>
                 <p className='font-semibold text-xl'>Settings</p>
-                <button type='button' onClick={()=>setThemeSettings(false )}
-                 style={{color: 'rgb(153,171,180',borderRadius:'50%'}}
+                <button type='button' onClick={()=>setThemeSettings(false)}
+                 style={{color: 'rgb(153,171,180', borderRadius:'50%'}}
                  className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'>
                     <MdOutlineCancel/>
                 </button>
@@ -29,8 +29,8 @@ function ThemeSettings() {
                     name="theme"
                     value="Light"
                     className='cursor-pointer'
-                    onChange={()=>{}}
-                    checked={true}
+                    onChange={setMode}
+                    checked={currentMode === 'Light'}
                     />
                     <label htmlFor="light" className='ml-2 text-md cursor-pointer'>
                         Light
@@ -43,8 +43,8 @@ function ThemeSettings() {
                     name="theme"
                     value="Dark"
                     className='cursor-pointer'
-                    onChange={()=>{}}
-                    checked={true}
+                    onChange={setMode}
+                    checked={currentMode === 'Dark'}
                     />
                     <label htmlFor="dark" className='ml-2 text-md cursor-pointer'>
                         Dark
@@ -64,8 +64,9 @@ function ThemeSettings() {
                                 <button 
                                     type='button'
                                     className='h-10 w-10 rounded-full cursor-pointer'
+                                    onClick={()=>setColor(item.color)}
                                     style={{backgroundColor: item.color}}>
-                                        <BsCheck className={`ml-2 text-2xl text-white ${false}`}/>
+                                        <BsCheck className={`ml-2 text-2xl text-black ${item.color === currentColor ? 'block' : 'hidden'}`} />
                                     </button>
                             </div>
                         </TooltipComponent>
